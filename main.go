@@ -16,4 +16,5 @@ ch := make(chan int)
 go dummy(ch)
 log.Println("sending--")
 ch <- 100
+log.Println("received--")
 }
