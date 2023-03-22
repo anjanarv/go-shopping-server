@@ -67,7 +67,7 @@ func main() {
 	defer cancel()
 
 	tr := tp.Tracer("component-main")
-	ctx, span := tr.Start(ctx, "foo")
+	_, span := tr.Start(ctx, "foo")
 	defer span.End()
 
 	ch := make(chan int)
