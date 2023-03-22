@@ -15,6 +15,7 @@ import (
 	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
 )
 
+
 func dummy(c chan int) {
 	time.Sleep(3 * time.Second)
 	random := <-c
