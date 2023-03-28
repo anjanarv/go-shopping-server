@@ -53,6 +53,11 @@ jobs:
                   rm -rf .cr-release-packages
                   mkdir -p .cr-release-packages
                   helm package src/sampleserver/deployment --app-version=${VERSION:1} --version=${VERSION:1} --destination=.cr-release-packages
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: cr-release-packages
+          path: .cr-release-packages
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         env:
