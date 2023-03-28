@@ -2,8 +2,8 @@ name: Release Tag
 on:
   release:
     types: [published]
-  tags:
-    - sampleserver/v*
+    tags:
+     - sampleserver/v*
 
 jobs:
   release:
