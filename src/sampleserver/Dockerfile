@@ -1,6 +1,6 @@
-FROM golang:1.20
+FROM golang:1.16-alpine
 
-WORKDIR /app/go-sample-app/sampleserver
+WORKDIR /app
 
 COPY go.mod ./
 COPY go.sum ./
@@ -9,8 +9,8 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN go build -o ./out/go-sample-app/sampleserver .
+RUN go build -o /sampleserver
 
 EXPOSE 8080
 
-CMD [ "./out/go-sample-app/sampleserver" ]
+CMD [ "/sampleserver" ]
