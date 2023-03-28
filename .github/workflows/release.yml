@@ -29,7 +29,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
- #        context: .
+          context: src/sampleserver/
           file: src/sampleserver/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USER_NAME }}/sampleserver:${{ steps.release.outputs.release }}
