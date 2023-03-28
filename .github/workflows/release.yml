@@ -2,6 +2,7 @@ name: Release Tag
 on:
   release:
     types: [published]
+  push:
     tags:
      - sampleserver/v*
 
