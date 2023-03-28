@@ -1,3 +1,3 @@
 # go-sample-app
 
-Release using Helm
+Upload chart with latest tag to S3
