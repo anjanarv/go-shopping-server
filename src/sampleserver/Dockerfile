@@ -1,11 +1,11 @@
-FROM golang:1.19-buster as builder
+FROM golang:1.20.2-buster as builder
 
 WORKDIR /api-files
 #
 #COPY go.mod ./
 #COPY go.sum ./
 
-COPY go.* ./
+COPY go.mod ./
 RUN go mod download
 
 # Copy local code to the container image.
