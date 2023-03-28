@@ -1,3 +1,3 @@
 # go-sample-app
 
-Observability using Opentelemetry
+Release using Helm
