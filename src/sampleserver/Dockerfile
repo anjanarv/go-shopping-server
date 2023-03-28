@@ -1,10 +1,16 @@
-FROM golang:1.20 as builder
+FROM golang:1.19-buster as builder
 
 WORKDIR /api-files
 #
 #COPY go.mod ./
 #COPY go.sum ./
-COPY . .
+
+COPY go.* ./
+RUN go mod download
+
+# Copy local code to the container image.
+COPY . ./
+#COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./sampleserver ./app/./...
 
