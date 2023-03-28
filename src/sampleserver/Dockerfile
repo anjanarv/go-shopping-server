@@ -1,6 +1,9 @@
 FROM golang:1.20.2-buster as builder
 
 WORKDIR /app
+ENV CGO_ENABLED=0
+ENV GO111MODULE=on
+
 #
 COPY go.mod ./
 #COPY go.sum ./
