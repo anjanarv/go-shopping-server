@@ -1,30 +1,24 @@
 FROM golang:1.20.2-buster as builder
 
-WORKDIR /api-files
+WORKDIR /app
 #
 COPY go.mod ./
-#COPY go.sum ./
+COPY go.sum ./
 
 #COPY go.mod ./
 #RUN go mod download
 RUN go mod download
 
-COPY *.go ./
+COPY api/*.go ./
 
 # Copy local code to the container image.
 #COPY . ./
 #COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./sampleserver
-
-#RUN go mod download
-
-#COPY *.go ./
-
-#RUN go build -o /sampleserver
-
-FROM scratch as final
-COPY --from=builder /api-files/sampleserver /sampleserver
+RUN go build -o /sampleserver
+#
+#FROM scratch as final
+#COPY --from=builder /app/sampleserver /sampleserver
 
 EXPOSE 8080
 
