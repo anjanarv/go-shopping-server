@@ -2,6 +2,9 @@ name: Release Tag
 on:
   release:
     types: [published]
+  tags:
+    - sampleserver/v*
+
 jobs:
   release:
     runs-on: ubuntu-latest
