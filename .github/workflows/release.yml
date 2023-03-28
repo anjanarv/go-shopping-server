@@ -1,11 +1,7 @@
 name: Release Tag
 on:
-  push:
-    branches:
-      - release
-  pull_request:
-    branches:
-      - '**'
+  release:
+    types: [published]
 jobs:
   lint:
     runs-on: ubuntu-latest
