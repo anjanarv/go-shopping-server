@@ -2,17 +2,17 @@ FROM golang:1.20.2-buster as builder
 
 WORKDIR /api-files
 #
-#COPY go.mod ./
-#COPY go.sum ./
-
 COPY go.mod ./
-RUN go mod download
+COPY go.sum ./
+
+#COPY go.mod ./
+#RUN go mod download
 
 # Copy local code to the container image.
 COPY . ./
 #COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./sampleserver
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./sampleserver
 
 #RUN go mod download
 
