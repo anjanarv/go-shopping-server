@@ -9,8 +9,9 @@ COPY go.mod ./
 #RUN go mod download
 RUN go mod download
 
+#COPY api/*.go ./
+COPY . ./
 COPY api/*.go ./
-
 # Copy local code to the container image.
 #COPY . ./
 #COPY . .

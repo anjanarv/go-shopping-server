@@ -1,4 +1,4 @@
-module github.com/anjanarv/go-sample-app
+module github.com/anjanarv/go-sample-app/sampleserver
 
 go 1.20
 
