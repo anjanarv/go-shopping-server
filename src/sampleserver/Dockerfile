@@ -12,7 +12,7 @@ RUN go mod download
 COPY . ./
 #COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./sampleserver ./app/./...
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -o ./sampleserver
 
 #RUN go mod download
 
