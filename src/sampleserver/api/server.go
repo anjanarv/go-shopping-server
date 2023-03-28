@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -35,13 +34,11 @@ func (s *Server) routes() {
 
 func (s *Server) createShoppingItem() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("here==")
 		var i Item
 		i.ID = uuid.New()
 		s.shoppingItems = append(s.shoppingItems, i)
 		w.Header().Set("Content-Type", "application/json")
 		if err := json.NewEncoder(w).Encode(&i); err != nil {
-			fmt.Println("inside ==", r.Body)
 			return
 		}
 
