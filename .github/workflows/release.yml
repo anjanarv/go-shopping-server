@@ -47,6 +47,5 @@ jobs:
                   helm package sampleserver/deployment --app-version=${VERSION:1} --version=${VERSION:1} --destination=.cr-release-packages
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
-        with:
-            env:
-                CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        env:
+            CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
