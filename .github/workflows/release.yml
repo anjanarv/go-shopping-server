@@ -22,7 +22,7 @@ jobs:
       - name: Release name
         id: release
         shell: bash
-        run: echo ::set-output name=release::$(echo $GITHUB_REF | cut -d / -f 2)
+        run: echo ::set-output name=release::$(echo $GITHUB_REF_NAME | cut -d / -f 2)
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -49,7 +49,7 @@ jobs:
           version: v3.8.1
       - name: custom packaging
         run: |
-                  VERSION=${{github.ref_name}}
+                  VERSION=${{steps.release.outputs.release}}
                   rm -rf .cr-release-packages
                   mkdir -p .cr-release-packages
                   helm package src/sampleserver/deployment --app-version=${VERSION:1} --version=${VERSION:1} --destination=.cr-release-packages
