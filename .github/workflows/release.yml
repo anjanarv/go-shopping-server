@@ -25,4 +25,4 @@ jobs:
          context: .
          file: src/sampleserver/Dockerfile
          push: true
-         tags: ${{ secrets.DOCKERHUB_USERNAME }}/sampleserver:${{ steps.release.outputs.branch }}
+         tags: ${{ secrets.DOCKER_USER_NAME }}/sampleserver:${{ steps.release.outputs.branch }}
