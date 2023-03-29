@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: output_revision
         shell: bash
-        run: echo "${{needs.get_release.outputs.output1}}"
+        run: echo ${{needs.get_release.outputs.output1}}
   update_release_draft:
     needs: get_release
     if: ${{needs.get_release.outputs.output1 == '' }}
