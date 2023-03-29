@@ -27,6 +27,7 @@ jobs:
        shell: bash
        run: echo "test=$(echo gh release list | sort -k4 -r | grep 'Draft' | awk -F ' ' '{print $1}')" >> "$GITHUB_OUTPUT"
   update_release_draft:
+    needs: get_release
     if: ${{needs.get_release.outputs.output1 != '' }}
     permissions:
       # write permission is required to create a github release
