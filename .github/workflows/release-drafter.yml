@@ -27,14 +27,18 @@ jobs:
        shell: bash
        run: echo "test=$(echo gh release list | sort -k4 -r | grep 'Draft' | awk -F ' ' '{print $1}')" >> "$GITHUB_OUTPUT"
   output-version:
+
     needs: get_release
     runs-on: ubuntu-latest
     steps:
+      - env:
+         OUTPUT1: ${{needs.job1.outputs.output1}}
       - name: output_revision
         shell: bash
-        run: echo ${{needs.get_release.outputs.output1}}
+        run: echo "$OUTPUT1"
   update_release_draft:
     needs: get_release
+
     if: ${{needs.get_release.outputs.output1 == '' }}
     permissions:
       # write permission is required to create a github release
