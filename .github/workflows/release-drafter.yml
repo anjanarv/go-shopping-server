@@ -25,7 +25,7 @@ jobs:
      - name: get_revision
        id: release
        shell: bash
-       run: echo "test=$(echo gh release list | sort -k4 -r | grep 'Draft' | awk -F ' ' '{print $1}'" >> "$GITHUB_OUTPUT"
+       run: echo "test=$(echo gh release list | sort -k4 -r | grep 'Draft' | awk -F ' ' '{print $1}')" >> "$GITHUB_OUTPUT"
   update_release_draft:
     if: ${{needs.get_release.outputs.output1 != '' }}
     permissions:
