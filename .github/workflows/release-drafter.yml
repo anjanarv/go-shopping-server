@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - env:
-         OUTPUT1: ${{needs.release.outputs.output1}}
+         OUTPUT1: ${{needs.get_release.outputs.output1}}
        run: echo "$OUTPUT1"
   update_release_draft:
     needs: get_release
-    if: ${{needs.release.outputs.output1 == '' }}
+    if: ${{needs.get_release.outputs.output1 == '' }}
     permissions:
       # write permission is required to create a github release
       contents: write
