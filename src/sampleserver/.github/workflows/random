@@ -1,0 +1,7 @@
+
+curl -L --fail "https://hub.docker.com/v2/repositories/anjanarv83/sampleserver/tags/?page_size=1000" | \
+jq '.results | .[] | .name' -r | \
+sed 's/latest//' | \
+sort --version-sort | \
+tail -n 1
+

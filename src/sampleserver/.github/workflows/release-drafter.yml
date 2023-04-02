@@ -32,7 +32,7 @@ jobs:
     steps:
      - env:
          OUTPUT1: ${{needs.get_release.outputs.output1}}
-       run: echo "$OUTPUT1"
+       run: echo "$OUTPUT1 $OUTPUT1"
   update_release_draft:
     needs: get_release
     if: ${{needs.get_release.outputs.output1 == '' }}
