@@ -1,41 +1,23 @@
 name: Release Drafter
 
 on:
-  push:
-    # branches to consider in the event; optional, defaults to all
-    branches:
-      - master
-  # pull_request event is required only for autolabeler
-  #pull_request:
-    # Only following types are handled by the action, but one can default to all as well
-   # types: [opened, reopened, synchronize]
-  # pull_request_target event is required for autolabeler to support PRs from forks
-  # pull_request_target:
-  #   types: [opened, reopened, synchronize]
+  #  push:
+  #    branches:
+  #      - '**'
+  #  pull_request:
+  #    branches:
+  #      - '**'
+  workflow_run:
+    workflows:
+      - ci
+    types:
+      - completed
 
 permissions:
   contents: read
 
 jobs:
-  get_release:
-    runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.release.outputs.release }}
-    steps:
-     - name: get_revision
-       id: release
-       shell: bash
-       run: echo ::set-output name=release::$(echo gh release list | sort -k4 -r | grep 'Draft' | awk -F ' ' '{print $1}')
-  output-version:
-    needs: get_release
-    runs-on: ubuntu-latest
-    steps:
-     - env:
-         OUTPUT1: ${{needs.get_release.outputs.output1}}
-       run: echo "$OUTPUT1"
   update_release_draft:
-    needs: get_release
-    if: ${{needs.get_release.outputs.output1 == '' }}
     permissions:
       # write permission is required to create a github release
       contents: write
