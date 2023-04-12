@@ -8,10 +8,8 @@ on:
     branches:
       - '**'
   workflow_run:
-    workflows:
-        - CI
-    types:
-        - completed
+    workflows: ['CI']
+    types: ['completed']
 
 permissions:
   contents: read
