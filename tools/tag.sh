@@ -7,7 +7,7 @@
 #fi
 echo "TAGGING CHANGED PKG - "$CHANGED_PKG
 CHANGED_PKG=sampleserver
-DESCRIBE=$(git describe --match "sampleserver/v*" --tags `git rev-list --tags --max-count=1`) >/dev/null
+DESCRIBE=$(git describe --match "$CHANGED_PKG/v*" --tags `git rev-list --tags --max-count=1`) >/dev/null
 NEWTAG=""
 if [ -z "$DESCRIBE" ]; then
     echo "No previous tags exist in format ${CHANGED_PKG}/vx.x.x-rc*.Creating new version tag v1.0.0-rc1 ..."
