@@ -21,5 +21,5 @@
         - name: tag
           id: tag_pkg
           run: |
-            chmod +x tag.sh
-            ./tag
+            chmod +x ./tools/tag.sh
+            ./tools/tag.sh
