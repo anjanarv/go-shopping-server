@@ -1,11 +1,11 @@
   name: ci
   on:
-    push:
-      branches:
-        - '**'
     pull_request:
-      branches:
-        - '**'
+     types:
+       - opened
+       - reopened
+       - synchronize
+       
   jobs:
     lint-release:
       runs-on: ubuntu-latest
