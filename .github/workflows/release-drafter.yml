@@ -7,7 +7,7 @@
       branches:
         - '**'
   jobs:
-    lint:
+    lint-release:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -28,7 +28,5 @@
         - name : commit tag
           needs: tag_pkg
           id: commit_tag
-          env:
-            
           run: |
             git tag ${{steps.tag_pkg.output.NEWTAG}}
