@@ -28,5 +28,6 @@
         - name : commit tag
           needs: tag_pkg
           id: commit_tag
+          shell: bash
           run: |
-            git tag ${{steps.tag_pkg.output.NEWTAG}}
+            git tag ${{ steps.tag_pkg.output.NEWTAG }}
