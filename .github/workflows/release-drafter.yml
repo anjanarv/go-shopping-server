@@ -18,6 +18,7 @@
     tagging:
       runs-on: ubuntu-latest
       steps:
+        - uses: actions/checkout@v3
         - name: tagging
           id: tag_pkg
           shell: bash
