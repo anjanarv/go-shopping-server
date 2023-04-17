@@ -29,5 +29,7 @@
          # needs: tag_pkg
           id: commit_tag
           shell: bash
+          env:
+            GITHUB_TOKEN: ${{ steps.GITHUB_TOKEN }}
           run: |
             git tag -a ${{ steps.tag_pkg.outputs.NEWTAG }} -m ${{ steps.tag_pkg.outputs.NEWTAG }}
