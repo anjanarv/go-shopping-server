@@ -28,6 +28,7 @@ fi
 fi
 NEWTAG=$CHANGED_PKG/$NEWTAG
 echo "New tag created: "$NEWTAG
-tag=$(git tag -a $NEWTAG -m $NEWTAG)
-push_tag=$(git push --tags)
-echo "New tag successfully pushed to remote "$push_tag
+#tag=$(git tag -a $NEWTAG -m $NEWTAG)
+#push_tag=$(git push --tags)
+export NEWTAG
+#echo "New tag successfully pushed to remote "$push_tag
