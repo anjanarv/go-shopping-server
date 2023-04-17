@@ -25,23 +25,25 @@
           run: |
             chmod +x ./tools/tag.sh
             ./tools/tag.sh
-#        - name : commit tag
-#         # needs: tag_pkg
-#          id: commit_tag
-#          shell: bash
-#          run: |
-#            git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-#            git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-#            git tag -a ${{ steps.tag_pkg.outputs.NEWTAG }} -m ${{ steps.tag_pkg.outputs.NEWTAG }}
-#            git push origin ${{ steps.tag_pkg.outputs.NEWTAG }}
-        - name: Create tag
-          uses: actions/github-script@v5
-          with:
-            script: |
-              github.rest.git.createRef({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                ref: 'refs/tags/${{ steps.tag_pkg.outputs.NEWTAG }}',
-                sha: context.sha
-              })
+        - name : commit tag
+         # needs: tag_pkg
+          id: commit_tag
+          shell: bash
+          env:
+            GITHUB_TOKEN : ${{ secrets.GUTHUB_TOKEN}}
+          run: |
+            git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+            git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+            git tag -a ${{ steps.tag_pkg.outputs.NEWTAG }} -m ${{ steps.tag_pkg.outputs.NEWTAG }}
+            git push origin ${{ steps.tag_pkg.outputs.NEWTAG }}
+#        - name: Create tag
+#          uses: actions/github-script@v5
+#          with:
+#            script: |
+#              github.rest.git.createRef({
+#                owner: context.repo.owner,
+#                repo: context.repo.repo,
+#                ref: 'refs/tags/${{ steps.tag_pkg.outputs.NEWTAG }}',
+#                sha: context.sha
+#              })
   
