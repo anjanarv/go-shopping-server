@@ -18,7 +18,7 @@
     tagging:
       runs-on: ubuntu-latest
       steps:
-        - name: tag
+        - name: tagging
           id: tag_pkg
           shell: bash
           run: |
