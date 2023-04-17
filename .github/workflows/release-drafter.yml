@@ -26,7 +26,7 @@
             chmod +x ./tools/tag.sh
             ./tools/tag.sh
         - name : commit tag
-          needs: tag_pkg
+         # needs: tag_pkg
           id: commit_tag
           shell: bash
           run: |
