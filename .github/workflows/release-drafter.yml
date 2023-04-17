@@ -30,4 +30,4 @@
           id: commit_tag
           shell: bash
           run: |
-            git tag ${{ steps.tag_pkg.output.NEWTAG }}
+            git tag -a ${{ steps.tag_pkg.output.NEWTAG }} -m ${{ steps.tag_pkg.output.NEWTAG }}
