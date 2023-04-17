@@ -21,4 +21,4 @@
         - name: tag
           id: tag_pkg
           run: |
-            tag.sh
+            ./tag.sh
