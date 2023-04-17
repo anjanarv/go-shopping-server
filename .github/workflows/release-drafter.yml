@@ -25,8 +25,8 @@
           run: |
             chmod +x ./tools/tag.sh
             ./tools/tag.sh
-        - name : commit tag
-          needs: tag_pkg
-          id: commit_tag
-          run: |
-            git tag ${{steps.tag_pkg.output.NEWTAG}}
+#        - name : commit tag
+#          needs: tag_pkg
+#          id: commit_tag
+#          run: |
+#            git tag ${{steps.tag_pkg.output.NEWTAG}}
