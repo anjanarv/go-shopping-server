@@ -1,11 +1,11 @@
-  name: ci
+  name: release-drafter
   on:
     pull_request:
      types:
        - opened
        - reopened
        - synchronize
-       
+
   jobs:
     lint-release:
       runs-on: ubuntu-latest
