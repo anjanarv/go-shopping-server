@@ -20,6 +20,7 @@
       steps:
         - name: tag
           id: tag_pkg
+          shell: bash
           run: |
             chmod +x ./tools/tag.sh
             ./tools/tag.sh
