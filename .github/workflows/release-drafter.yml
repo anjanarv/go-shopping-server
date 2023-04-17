@@ -32,7 +32,7 @@
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
-            git config user.name "GitHub Actions Bot"
-            git config user.email "<>"
+            git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+            git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
             git tag -a ${{ steps.tag_pkg.outputs.NEWTAG }} -m ${{ steps.tag_pkg.outputs.NEWTAG }}
             git push origin ${{ steps.tag_pkg.outputs.NEWTAG }}
