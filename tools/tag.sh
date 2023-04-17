@@ -5,6 +5,9 @@
 #    echo ""
 #    exit 1
 #fi
+
+git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
 echo "TAGGING CHANGED PKG - "$CHANGED_PKG
 CHANGED_PKG=sampleserver
 DESCRIBE=$(git describe --match "$CHANGED_PKG/v*" --tags `git rev-list --tags --max-count=1`) >/dev/null
@@ -28,8 +31,8 @@ fi
 fi
 NEWTAG=$CHANGED_PKG/$NEWTAG
 echo "New tag created: "$NEWTAG
-#tag=$(git tag -a $NEWTAG -m $NEWTAG)
-#push_tag=$(git push --tags)
+tag=$(git tag -a $NEWTAG -m $NEWTAG)
+push_tag=$(git push --tags)
 export NEWTAG
 echo ::set-output name=NEWTAG::$NEWTAG
 
