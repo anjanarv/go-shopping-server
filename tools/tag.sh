@@ -6,6 +6,7 @@
 #    exit 1
 #fi
 echo "TAGGING CHANGED PKG - "$CHANGED_PKG
+CHANGED_PKG=sampleserver
 DESCRIBE=$(git describe --match "sampleserver/v*" --tags `git rev-list --tags --max-count=1`) >/dev/null
 NEWTAG=""
 if [ -z "$DESCRIBE" ]; then
