@@ -19,7 +19,7 @@ jobs:
       id: store-data
       shell: bash
       run: |
-        touch test1
+        cat test1
         echo 'ttextttttt - 12345876876876 ~~~' >> test1
 
     - name: Store cached release
@@ -29,7 +29,7 @@ jobs:
         path: test1
         key: release-data
         restore-keys: |
-            release-data
+            release-data-1
     
   trigger-restore:
     needs: 
