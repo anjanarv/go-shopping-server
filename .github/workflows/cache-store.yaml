@@ -19,7 +19,7 @@ jobs:
       id: store-data
       shell: bash
       run: |
-        cat test1
+        cat > test1
         echo 'ttextttttt - 12345876876876 ~~~' >> test1
 
     - name: Store cached release
