@@ -11,16 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: actions/cache/restore@v3
-      id: cache
-      with:
-       path: test1
-       key: release-data
+    # - uses: actions/cache/restore@v3
+    #   id: cache
+    #   with:
+    #    path: test1
+    #    key: release-data
 
-    - name: output
-      env:
-        outs: ${{ steps.cache.outputs.cache-primary-key }}
-      run: echo "outs=$outs" >> $GITHUB_OUTPUT 
+    # - name: output
+    #   env:
+    #     outs: ${{ steps.cache.outputs.cache-primary-key }}
+    #   run: echo "outs=$outs" >> $GITHUB_OUTPUT 
 
     - name: test1
       shell: bash
