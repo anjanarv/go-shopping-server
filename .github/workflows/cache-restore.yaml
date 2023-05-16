@@ -19,5 +19,5 @@ jobs:
 
     - name: output
       env:
-        outs: ${{ steps.cache.outputs.test1 }}
+        outs: ${{ steps.cache.outputs.cache-primary-key }}
       run: echo "outs=$outs" >> $GITHUB_OUTPUT 
