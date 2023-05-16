@@ -19,4 +19,4 @@ jobs:
 
     - name: output
       shell: bash
-      run: echo ${ steps.cache.outputs }
+      run: echo $${ steps.cache.outputs }
