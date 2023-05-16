@@ -27,7 +27,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: test1
-        key: release-data
+        key: release-data-${{ github.run_id }}
         restore-keys: |
             release-data-1
     

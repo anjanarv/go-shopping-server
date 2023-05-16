@@ -15,7 +15,7 @@ jobs:
       id: cache
       with:
        path: test1
-       key: release-data
+       key: release-data-${{ github.run_id }}
 
     - name: test1
       shell: bash
