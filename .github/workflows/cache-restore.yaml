@@ -1,12 +1,8 @@
 name: Caching restore
 
 on:
-  push:
-    branches:
-      - '**'
-  pull_request:
-    branches:
-      - '**'
+   workflow_call:
+
 
 jobs:
   build:
@@ -21,8 +17,3 @@ jobs:
        path: test1
        key: release-data
 
-
-  trigger-restore:
-      needs: 
-        - build
-      uses: './.github/workflows/cache-restore.yaml'       
