@@ -19,3 +19,9 @@ jobs:
       with:
        path: test1
        key: release.yaml
+
+
+  trigger-restore:
+      needs: 
+        - build
+      uses: './.github/workflows/cache-restore.yaml'       
