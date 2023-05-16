@@ -18,5 +18,6 @@ jobs:
        key: release-data
 
     - name: output
-      shell: bash
-      run: echo $${ steps.cache.outputs }
+      env:
+        outs: ${{ steps.cache.outputs.test1 }}
+      run: echo "$outs"
