@@ -20,4 +20,4 @@ jobs:
     - name: output
       env:
         outs: ${{ steps.cache.outputs.test1 }}
-      run: echo $outs
+      run: echo "outs=$outs" >> $GITHUB_OUTPUT 
