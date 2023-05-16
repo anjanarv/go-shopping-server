@@ -20,7 +20,7 @@ jobs:
       shell: bash
       run: |
         touch test1
-        echo 'ttextttttt ~~~' >> test1
+        echo 'ttextttttt - 12345876876876 ~~~' >> test1
 
     - name: Store cached release
       id: cache-store
