@@ -1,9 +1,12 @@
 name: Caching Ex
 
 on:
-    pull_request:
-      branches:
-         - '**'
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   build:
