@@ -20,7 +20,7 @@ jobs:
       shell: bash
       run: |
         cat > test1
-        echo 'ttextttttt - 12345876876876 ~~~' >> test1
+        echo 'ttextttttt - 1234587%%%%%%%%%%%%%%%6876876 ~~~' >> test1
 
     - name: Store cached release
       id: cache-store
