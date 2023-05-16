@@ -1,0 +1,25 @@
+name: Caching store
+
+on:
+   workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Store data in file
+      id: store-data
+      shell: bash
+      run: |
+        touch test1
+        echo 'ttextttttt ~~~' >> test1
+
+    - name: Restore cached release
+      id: cache-store
+      uses: actions/cache@v3
+      with:
+        path: test1
+        key: release-data

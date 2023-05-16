@@ -1,7 +1,12 @@
-name: Caching Restore
+name: Caching restore
 
 on:
-   workflow_call:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   build:
@@ -10,16 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Store data in file
-      id: store-data
-      shell: bash
-      run: |
-        touch test1
-        echo 'ttextttttt ~~~' >> test1
-
-    - name: Restore cached release
-      id: cache-release-restore
-      uses: actions/cache/restore@v3
+    - uses: actions/cache/restore@v3
+      id: cache
       with:
-        path: test1
-        key: release.yaml
+       path: test1
+       key: release-data
+
+
+  trigger-restore:
+      needs: 
+        - build
+      uses: './.github/workflows/cache-restore.yaml'       
