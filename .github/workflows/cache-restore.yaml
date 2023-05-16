@@ -16,8 +16,6 @@ jobs:
       with:
        path: test1
        key: release-data
-       restore-keys: |
-            release-data
 
     - name: test1
       shell: bash

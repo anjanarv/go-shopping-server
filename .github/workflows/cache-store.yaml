@@ -28,7 +28,8 @@ jobs:
       with:
         path: test1
         key: release-data
-
+        restore-keys: |
+            release-data
     
   trigger-restore:
     needs: 
