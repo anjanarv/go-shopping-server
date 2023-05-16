@@ -17,3 +17,6 @@ jobs:
        path: test1
        key: release-data
 
+    - name: output
+      shell: bash
+      run: echo ${ steps.cache.outputs }
