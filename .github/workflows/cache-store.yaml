@@ -35,7 +35,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
         echo ${{ github.event.number }}
-        gh issue create --title ${{ github.event.number }} --body "testing this :"
+        gh issue create --title ${{ github.event.number }} --body "testing this"
 
   trigger-restore:
     needs: 
