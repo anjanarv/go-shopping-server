@@ -27,7 +27,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
-        rate=$(gh issue list -S "${{github.event.number}} in:title" | awk '{split($0,a," "); print a[1]}')
+        rate=$(gh issue list -S "${{github.event.number}} in:title" | awk '{split($0,a," "); print a[1]}' | sort -rn | head -1)
         echo $rate
         gh issue comment $rate -b "hello there !"
    
