@@ -20,3 +20,12 @@ jobs:
     - name: test1
       shell: bash
       run: cat test1 
+
+
+    - name: test issue
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+      run: |
+        echo "ISSUE_NUM=$(gh issue list -s "${{github.event.number}} in:title" | awk '{split($0,a," "); print a[1]}')"
+        gh issue comment $ISSUE_NUM -b "hello there !"
+   
