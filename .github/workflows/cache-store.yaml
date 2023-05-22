@@ -34,8 +34,9 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
-        gh issue create --title ${{ github.event.number }} --body "result"
-       
+        echo ${{ github.event.number }}
+        gh issue create --title ${{ github.event.number }} --body "testing this :"
+
   trigger-restore:
     needs: 
         - build
