@@ -26,6 +26,6 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
-        echo "ISSUE_NUM=$(gh issue list -S "${{github.event.number}} in:title" | awk '{split($0,a," "); print a[1]}')"
-        gh issue comment $ISSUE_NUM -b "hello there !"
+        echo "ISSUE_NUM=$(gh issue list -S "${{github.event.number}} in:title" | awk '{split($0,a," "); print a[1]}')" >> GITHUB_OUTPUT
+        gh issue comment ${{ ISSUE_NUM }} -b "hello there !"
    
