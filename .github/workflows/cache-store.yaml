@@ -35,9 +35,18 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
         echo ${{ github.event.number }}
-        gh issue create --title ${{ github.event.number }} --body 'testing this'
+        gh issue create --title ${{ github.event.number }} 
 
   trigger-restore:
     needs: 
         - build
     uses: './.github/workflows/cache-restore.yaml'           
+
+    script-run:
+    run: |
+      ./test-script.sh
+
+  - uses: actions/upload-artifact@v3
+    with:
+    name: my-artifact
+    path: hello.out 
