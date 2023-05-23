@@ -50,8 +50,9 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: 'run script'
+      shell: bash
       run: |
-        test.script.sh
+        ./test.script.sh
 
     - name : 'upload'
       uses: actions/upload-artifact@v3
