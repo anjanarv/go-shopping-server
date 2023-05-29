@@ -49,16 +49,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: 'run script'
-      shell: bash
-      run: |
-        ./test.script.sh
+    # - name: 'run script'
+    #   shell: bash
+    #   run: |
+    #     ./test.script.sh
 
-    - name : 'upload'
-      uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: "hello.out"  
+    # - name : 'upload'
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: my-artifact
+    #     path: "hello.out"  
 
 
     - name : 'branch'
