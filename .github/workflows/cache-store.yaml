@@ -59,3 +59,12 @@ jobs:
       with:
         name: my-artifact
         path: "hello.out"  
+
+
+    - name : 'branch'
+      run: |
+         git checkout -b "test-branch"
+         cat > testing
+         git add testing
+         git commit -m "hello.out"
+         git push origin test-branch    
