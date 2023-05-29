@@ -63,6 +63,7 @@ jobs:
 
     - name : 'branch'
       run: |
+        git config --global user.name "Anjana V"
          git checkout -b "test-branch"
          cat > testing
          git add testing
