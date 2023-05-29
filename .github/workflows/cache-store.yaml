@@ -63,7 +63,8 @@ jobs:
 
     - name : 'branch'
       run: |
-        git config --global user.name "Anjana V"
+         git config --global user.name "Anjana V"
+         git config --global user.email "anjana.rv83@gmail.com"
          git checkout -b "test-branch"
          cat > testing
          git add testing
