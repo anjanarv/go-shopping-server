@@ -62,7 +62,7 @@ jobs:
 
     - name : 'creae branch'
       run: |
-         git checkout -b "test-branch-1"
+         git checkout -b "test-branch-2"
          cat > testing
 
 
@@ -72,4 +72,4 @@ jobs:
          git config --global user.email "anjana.rv83@gmail.com"
          git add testing
          git commit -m "hello.out"
-         git push origin test-branch-1   
+         git push origin test-branch-2  
