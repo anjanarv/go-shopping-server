@@ -60,9 +60,8 @@ jobs:
     #     name: my-artifact
     #     path: "hello.out"  
 
-    - name: 'creae branch'
-       run: |
-       
+    - name : 'creae branch'
+      run: |
          git checkout -b "test-branch-1"
 
 
