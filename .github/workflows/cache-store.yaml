@@ -63,13 +63,13 @@ jobs:
     - name : 'creae branch'
       run: |
          git checkout -b "test-branch-1"
+         cat > testing
 
 
     - name : 'branch'
       run: |
          git config --global user.name "Anjana V"
          git config --global user.email "anjana.rv83@gmail.com"
-         cat > testing
          git add testing
          git commit -m "hello.out"
          git push origin test-branch-1   
