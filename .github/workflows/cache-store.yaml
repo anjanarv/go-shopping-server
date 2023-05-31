@@ -70,11 +70,12 @@ jobs:
           echo "exists=$(git show-ref ${ branch })" >> GITHUB_OUTPUT
           echo "here=$exists"
           if [[ -z exists ]]; then
-                    echo "here========"
+            echo "here========"
             git branch --delete $branch  
           fi
           echo "creating branch"
           git checkout -b $branch
+
 
     - name : 'create branch'
       env:
