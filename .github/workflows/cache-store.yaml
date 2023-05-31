@@ -72,6 +72,7 @@ jobs:
           if [[ exists != '' ]]; then
             git branch --delete $branch  
           fi
+          echo "creating branch"
           git checkout -b $branch
 
     - name : 'creae branch'
