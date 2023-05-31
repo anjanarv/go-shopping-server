@@ -88,4 +88,5 @@ jobs:
          git config --global user.email "anjana.rv83@gmail.com"
          git add testing
          git commit -m "hello.out"
+         git fetch
          git push origin test-branch-2  
