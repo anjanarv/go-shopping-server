@@ -70,7 +70,7 @@ jobs:
           echo "exists=$(git show-ref $branch)" >> GITHUB_OUTPUT
           echo "here=$exists"
           if [[ ! -z $exists ]]; then
-            echo "here========"
+            echo "delete========"
             git push origin --delete $branch  
           fi
           echo "creating branch"
