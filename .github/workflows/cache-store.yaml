@@ -60,6 +60,18 @@ jobs:
     #     name: my-artifact
     #     path: "hello.out"  
 
+    - name: 'branch name'
+      env:
+        pkg: "testing"
+      run: |
+          branch="auto-update/${{ env.pkg }}-v1.0.0"
+          exists=$(`git show-ref ${branch}`)
+          if [[ exists != '' ]]; then
+            git branch --delete $branch
+          fi
+            git checkout -b branch  
+
+
     - name : 'creae branch'
       run: |
          git checkout -b "test-branch-2"
