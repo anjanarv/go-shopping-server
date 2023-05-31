@@ -69,7 +69,7 @@ jobs:
           echo $branch
           echo "exists=$(git show-ref $branch)" >> GITHUB_OUTPUT
           echo "here=$exists"
-          if [[ -z exists ]]; then
+          if [[ -z $exists ]]; then
             echo "here========"
             git branch --delete $branch  
           fi
