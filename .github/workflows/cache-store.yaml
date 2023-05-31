@@ -76,18 +76,21 @@ jobs:
           echo "creating branch"
           git checkout -b $branch
 
-    - name : 'creae branch'
+    - name : 'create branch'
+      env:
+        pkg: "testing"
       run: |
-         git checkout -b "test-branch-2"
+         git checkout -b "auto-update/${{ env.pkg }}-v1.0.0"
          cat > testing
 
 
     - name : 'branch'
+      env:
+        pkg: "testing"
       run: |
-         git checkout $branch
+         git checkout "auto-update/${{ env.pkg }}-v1.0.0"
          git config --global user.name "Anjana V"
          git config --global user.email "anjana.rv83@gmail.com"
          git add testing
          git commit -m "hello.out"
-         git fetch
-         git push origin test-branch-2  
+         git push origin "auto-update/${{ env.pkg }}-v1.0.0"
