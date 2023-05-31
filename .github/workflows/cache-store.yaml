@@ -65,11 +65,8 @@ jobs:
         pkg: "testing"
       run: |
           branch="auto-update/${{ env.pkg }}-v1.0.0"
-          exists=$(`git show-ref ${branch}`)
-          if [[ exists != '' ]]; then
-            git branch --delete $branch
-          fi
-            git checkout -b branch  
+          exists=$(`git show-ref $branch`)
+ 
 
 
     - name : 'creae branch'
