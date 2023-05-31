@@ -80,7 +80,6 @@ jobs:
       env:
         pkg: "testing"
       run: |
-         git checkout -b "auto-update/${{ env.pkg }}-v1.0.0"
          cat > testing
 
 
