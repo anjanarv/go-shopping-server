@@ -88,7 +88,7 @@ jobs:
       env:
         pkg: "testing"
       run: |
-         git pull origin "auto-update/${{ env.pkg }}-v1.0.0"
+         git pull "auto-update/${{ env.pkg }}-v1.0.0"
          git config --global user.name "Anjana V"
          git config --global user.email "anjana.rv83@gmail.com"
          git add testing
