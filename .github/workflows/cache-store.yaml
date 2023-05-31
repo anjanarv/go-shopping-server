@@ -67,7 +67,7 @@ jobs:
       run: |
           branch="auto-update/${{ env.pkg }}-v1.0.0"
           echo $branch
-          exists=$(git show-ref $branch)
+          exists=$(git show-ref ${{ branch }})
           echo "here=$exists"
          
 
