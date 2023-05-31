@@ -65,7 +65,7 @@ jobs:
         pkg: "testing"
       run: |
           branch="auto-update/${{ env.pkg }}-v1.0.0"
-          exists=$(`git show-ref $branch`)
+          exists=(git show-ref $branch)
  
 
 
