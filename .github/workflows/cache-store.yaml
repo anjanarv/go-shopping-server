@@ -71,7 +71,7 @@ jobs:
           echo "here=$exists"
           if [[ -z $exists ]]; then
             echo "here========"
-            git branch --delete $branch  
+            git push origin --delete $branch  
           fi
           echo "creating branch"
           git checkout -b $branch
