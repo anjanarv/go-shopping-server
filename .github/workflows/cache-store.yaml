@@ -70,7 +70,7 @@ jobs:
           echo "here=$exists"
           if [[ exists != '' ]]; then
             git branch --delete $branch
-         fi
+          fi
           git checkout -b branch  
 
 
