@@ -63,6 +63,7 @@ jobs:
     - name: 'branch name'
       env:
         pkg: "testing"
+      shell: bash  
       run: |
           branch="auto-update/${{ env.pkg }}-v1.0.0"
           echo $branch
