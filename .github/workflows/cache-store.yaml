@@ -91,7 +91,6 @@ jobs:
          git config --global user.name "Anjana V"
          git config --global user.email "anjana.rv83@gmail.com"       
          echo "set config..pulling"  
-         git pull "auto-update/${{ env.pkg }}-v1.0.0"
 
 
          git add testing
