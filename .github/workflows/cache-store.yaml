@@ -69,7 +69,10 @@ jobs:
           echo $branch
           echo "exists=$(git show-ref ${ branch })" >> GITHUB_OUTPUT
           echo "here=$exists"
-         
+          if [[ exists != '' ]]; then
+            git branch --delete $branch  
+          fi
+          git checkout -b $branch
 
     - name : 'creae branch'
       run: |
