@@ -93,8 +93,5 @@ jobs:
          git config --global user.email "anjana.rv83@gmail.com"       
          echo "set config..pulling"  
          git add testing
-
-         git config pull.rebase true 
-         git pull "auto-update/${{ env.pkg }}-v1.0.0"
          git commit -m "hello.out"
          git push origin "auto-update/${{ env.pkg }}-v1.0.0"
