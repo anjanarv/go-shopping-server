@@ -67,9 +67,9 @@ jobs:
       run: |
           git fetch
           branch="auto-update/${{ env.pkg }}-v1.0.0"
-          echo $branch
+          echo "here1111=$branch"
           exists=$(git show-ref ${branch})
-          echo "here=${exists}"
+          echo "here2222=${exists}"
           if [[ ! -z $exists ]]; then
             echo "delete========"
             git push origin --delete $branch  
