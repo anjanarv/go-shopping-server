@@ -95,5 +95,6 @@ jobs:
          git add testing
 
          git config pull.rebase true 
+         git pull "auto-update/${{ env.pkg }}-v1.0.0"
          git commit -m "hello.out"
          git push origin "auto-update/${{ env.pkg }}-v1.0.0"
