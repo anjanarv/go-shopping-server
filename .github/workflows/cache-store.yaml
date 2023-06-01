@@ -94,6 +94,6 @@ jobs:
          echo "set config..pulling"  
          git add testing
 
-         git config pull.ff only 
+         git config pull.rebase true 
          git commit -m "hello.out"
          git push origin "auto-update/${{ env.pkg }}-v1.0.0"
