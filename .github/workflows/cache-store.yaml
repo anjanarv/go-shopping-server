@@ -68,7 +68,7 @@ jobs:
           git fetch
           branch="auto-update/${{ env.pkg }}-v1.0.0"
           echo $branch
-          echo "exists=$(git show-ref $branch)" >> GITHUB_OUTPUT
+          exists=$(git show-ref $branch)
           echo "here=${ exists }"
           if [[ ! -z $exists ]]; then
             echo "delete========"
