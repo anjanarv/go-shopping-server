@@ -24,12 +24,13 @@ jobs:
     - name: Summary
       env:
         VERSION: ${{ env.RELEASE_VERSION }}
+      shell: bash  
       run: |
          git fetch --all --tags
          echo "Version....${VERSION}"
          PREVIOUS_VERSION=$(git tag --sort=-committerdate | head -2 | awk '{split($0, tags, "\n")} END {print tags[1]}')
          echo "Previous Version....${PREVIOUS_VERSION}"
-         CHANGES=$(git log --oneline --pretty="- %s" ${PREVIOUS_VERSION}...${VERSION})
+         CHANGES=$(git log --oneline --pretty="- %s" $PREVIOUS_VERSION...$VERSION)
          echo ${CHANGES}
          printf "# 🎁 Release notes (\`$VERSION\`)\n\n## Changes\n$CHANGES\n\n" > release_notes.md     
 
