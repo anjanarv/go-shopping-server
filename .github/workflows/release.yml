@@ -25,7 +25,6 @@ jobs:
       env:
         VERSION: ${{ env.RELEASE_VERSION }}
       run: |
-         git fetch --tags
          echo "Version....${VERSION}"
          PREVIOUS_VERSION=$(git tag --sort=-committerdate | head -2 | awk '{split($0, tags, "\n")} END {print tags[1]}')
          echo "Previous Version....${PREVIOUS_VERSION}"
