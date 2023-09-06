@@ -16,20 +16,15 @@ jobs:
     - name: Set env
       run: |
          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-    
-    - name: Test
-      run: |
-         echo $RELEASE_VERSION
-         echo ${{ env.RELEASE_VERSION }}
 
     - name: Summary
       run: |
          VERSION=$(git tag --sort=-committerdate | head -1)
          PREVIOUS_VERSION=$(git tag --sort=-committerdate | head -2 | awk '{split($0, tags, "\n")} END {print tags[1]}')
          CHANGES=$(git log --pretty="- %s" ${{ env.RELEASE_VERSION }}...$PREVIOUS_VERSION)
-         echo "# 🎁 Release notes (\`$VERSION\`)\n\n## Changes\n$CHANGES\n\n## Metadata\n\`\`\`\nThis version -------- $VERSION\nPrevious version ---- $PREVIOUS_VERSION\nTotal commits ------- $(echo "$CHANGES" | wc -l)\n\`\`\`\n" > release_notes.md     
+         printf "# 🎁 Release notes (\`$VERSION\`)\n\n## Changes\n$CHANGES\n\n## Metadata\n\`\`\`\nThis version -------- $VERSION\nPrevious version ---- $PREVIOUS_VERSION\nTotal commits ------- $(echo "$CHANGES" | wc -l)\n\`\`\`\n" > release_notes.md     
 
-    - name: release
+    - name: Release
       env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
