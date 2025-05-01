@@ -46,7 +46,7 @@ fi
 version_type="${2:-patch}"
 
 # Increment the version
-new_version="go-shopping-store/v${parts[0]}.${parts[1]}.${parts[2]}"
+new_version="go-shopping-server/v${parts[0]}.${parts[1]}.${parts[2]}"
 
 # Check if increment_version failed
 if [ $? -ne 0 ]; then
