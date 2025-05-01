@@ -16,7 +16,7 @@ jobs:
 
     - name: Set env
       run: |
-         ./scripts/versioning.sh 
+         ../scripts/versioning.sh 
 
     - name: Summary
       env:
