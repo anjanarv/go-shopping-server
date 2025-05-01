@@ -2,9 +2,11 @@
 
 Build a web server using [Gorilla/mux](https://pkg.go.dev/github.com/gorilla/mux#section-readme)
 
-GET /items/ should return all the items in the store
+#### GET `/items/` 
+  should return all the items in the store
 
-POST /item should record an item for every subsequent POST
+#### POST `/item` 
+  should record an item for every subsequent POST
 
 The name `mux` stands for HTTP request multiplexer. It matches the incoming requests/routes against the registered routes and calls the
 corresponding handler for the route.
