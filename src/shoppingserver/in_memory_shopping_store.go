@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/google/uuid"
 )
 
@@ -22,15 +21,12 @@ type InMemoryShoppingStore struct {
 func (i *InMemoryShoppingStore) AddItems(b []byte) error {
 	var items []Item
 
-	fmt.Println("here:")
 	err := json.Unmarshal(b, &items)
 	if err != nil {
 		return err
 	}
-	fmt.Println("here:", items)
 
 	i.items = append(i.items, items...)
-	fmt.Println(i.items)
 
 	return nil
 }
