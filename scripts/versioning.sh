@@ -60,3 +60,4 @@ git push origin "$new_version"
 git push origin --tags --force
 
 echo "RELEASE_VERSION=$new_version" >> $GITHUB_ENV
+
