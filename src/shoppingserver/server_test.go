@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"io"
@@ -43,8 +42,6 @@ func TestShoppingServer(t *testing.T) {
 		var items []Item
 		err = json.Unmarshal(body, &items)
 		assert.NoError(t, err)
-
-		fmt.Println(items)
 
 		assert.Equal(t, http.StatusOK, recorder.Code)
 		assert.Equal(t, 3, len(items))

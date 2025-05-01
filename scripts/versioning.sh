@@ -46,7 +46,7 @@ fi
 version_type="${2:-patch}"
 
 # Increment the version
-new_version="go-shopping-store/${parts[0]}.${parts[1]}.${parts[2]}"
+new_version="go-shopping-store/v${parts[0]}.${parts[1]}.${parts[2]}"
 
 # Check if increment_version failed
 if [ $? -ne 0 ]; then
@@ -56,6 +56,6 @@ fi
 # Output the new version
 echo "New version: $new_version"
 
-git push origin $new_version
+git push origin "$new_version"
 
 echo "RELEASE_VERSION=$new_version" >> $GITHUB_ENV
