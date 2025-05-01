@@ -8,8 +8,8 @@ current_version_git=$(git tag --sort=-committerdate | head -2 | awk '{split($0, 
 current_version=$(echo "$current_version_git" | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' )
 
 if [ -z "$current_version" ]; then
-  current_version="1\.0\.0"
-  echo "current version is "$current_version
+  current_version="1.0.0"
+  echo "current version is -"$current_version
 fi
 
 # Validate the current version format
