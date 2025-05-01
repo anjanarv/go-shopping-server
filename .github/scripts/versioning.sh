@@ -57,3 +57,5 @@ fi
 
 # Output the new version
 echo "New version: $new_version"
+
+echo "RELEASE_VERSION=$new_version" >> $GITHUB_ENV
