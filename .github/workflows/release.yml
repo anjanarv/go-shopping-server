@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
     
 
@@ -14,12 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set env
+    - name: Create Version
       shell: bash
       run: |
          ./scripts/versioning.sh major
 
-    - name: Summary
+    - name: Generate Summary
       env:
         VERSION: ${{ env.RELEASE_VERSION }}
       shell: bash  
@@ -32,7 +32,7 @@ jobs:
          echo ${CHANGES}
          printf "# 🎁 Release notes (\`$VERSION\`)\n\n## Changes\n$CHANGES\n\n" > release_notes.md     
 
-    - name: Release
+    - name: Create Release
       env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
       run: |
